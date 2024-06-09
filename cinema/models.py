@@ -40,10 +40,11 @@ class Actor(models.Model):
 
 def create_file_path(instance, filename):
     _, extension = os.path.splitext(filename)
-    return os.path.join(
+    _path = os.path.join(
         "uploads/images/",
-        f"{slugify(instance.title)}-{uuid}{extension}"
+        f"{slugify(instance.title)}-{uuid.uuid4()}{extension}"
     )
+    return _path
 
 
 
