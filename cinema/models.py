@@ -38,14 +38,14 @@ class Actor(models.Model):
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
 
+
 def create_file_path(instance, filename):
     _, extension = os.path.splitext(filename)
     _path = os.path.join(
         "uploads/images/",
-        f"{slugify(instance.title)}-{uuid.uuid4()}{extension}"
+        f"{slugify(instance.title)}-{uuid.uuid4()}{extension}",
     )
     return _path
-
 
 
 class Movie(models.Model):
